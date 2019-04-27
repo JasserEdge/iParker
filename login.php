@@ -41,37 +41,6 @@
 				</ul>
 			</nav>
 
-		<!-- Banner -->
-			<section class="banner full">
-				<article>
-					<img src="images/slide01.jpg" alt="" />
-					<div class="inner">
-						<header>
-							<p>iAcademy's Parking Management System</p>
-							<h2>iParker</h2>
-						</header>
-					</div>
-				</article>
-				<article>
-					<img src="images/slide02.jpg" alt="" />
-					<div class="inner">
-						<header>
-							<p>iAcademy's Parking Management System</p>
-							<h2>iParker</h2>
-						</header>
-					</div>
-				</article>
-				<article>
-					<img src="images/slide03.jpg"  alt="" />
-					<div class="inner">
-						<header>
-							<p>iAcademy's Parking Management System</p>
-							<h2>iParker</h2>
-						</header>
-					</div>
-				</article>
-			</section>
-
 		<!-- One -->
 			<section id="one" class="wrapper style2">
 				<div class="inner">
