@@ -8,6 +8,10 @@
   margin-right: auto;
 }
 
+.text-white{
+  color: white;
+}
+
 .alert.success {background-color: #4CAF50;}
 
 	.containersmall {

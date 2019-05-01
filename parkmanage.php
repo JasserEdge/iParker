@@ -10,6 +10,12 @@
 		die("Connection Failed:" . mysqli_connect_error());
 	}
 	
+	//get data
+	//get all information from  table
+	$query="SELECT * from vehicles";
+	//run the query and store data in a variable
+	$data = @mysqli_query($conn, $query);
+	//display data
 ?>
 
 <html>
@@ -20,10 +26,9 @@
 		<!--Main CSS-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/alert.css" />
-	<style>
-
-
-	</style>
+		<link rel="stylesheet" href="assets/css/button.css" />
+		
+	
 	</head>
 	<body class="landing">
 		<!-- Header -->
@@ -31,9 +36,9 @@
 			<h1><img class= "logo" src="images/logo.png" alt="no image" /><strong><a href="">iParker iAcademy</a></strong></h1>
 			<nav id="nav">
 				<ul>
-					<li><strong><p>ADMIN</p></strong></li>	
+					<li><strong><p class="text-white">ADMIN</p></strong></li>	
 					<li><a href="index.php">Log out</a></li>					
-					<li><a href="">Contact us</a></li>
+					<li><a href="options.php">Options</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -43,26 +48,21 @@
 		
 		<!-- Banner -->
 			<section id="banner" class="wrapper style1">
-				<div class="container">
-					<table border='1'>
+				<div>
+					<table style="color:white" border='1'>
 						<tr>
-							<th>ID</th>
-							<th>License Plate</th>
-							<th>Vehicle Type</th>
-							<th>School Occupation</th>
-							<th>Parking Spot</th>
-							<th>Time-in</th>
-							<th>Time-out</th>
-							<th>Date</th>
+							<th><h4 style="color:white">ID</h4></th>
+							<th><h4 style="color:white">License Plate</h4></th>
+							<th><h4 style="color:white">Vehicle Type</h4></th>
+							<th><h4 style="color:white">School Occupation</h4></th>
+							<th><h4 style="color:white">Parking Spot</h4></th>
+							<th><h4 style="color:white">Time-in</h4></th>
+							<th><h4 style="color:white">Time-out</h4></th>
+							<th><h4 style="color:white">Date</h4></th>
+							<th></th>
+							<th></th>
 						</tr>
-						
 						<?php
-							//get data
-							//get all information from  table
-							$query="SELECT * from vehicles";
-							//run the query and store data in a variable
-							$data = @mysqli_query($conn, $query);
-							//display data
 							if($data) {
 								while($row = @mysqli_fetch_array($data)){ ?>
 									<tr><td><?php echo $row['parking_id'];?></td>
@@ -73,12 +73,21 @@
 									   <td> <?php echo $row['time_in'];?></td>
 									   <td> <?php echo $row['time_out'];?></td>
 									   <td> <?php echo $row['date'];?></td>
+									   <td><a href="" class="button buttoncolor edit small icon">Edit</a></td>
+									   <td><a href="" class="button buttoncolor delete small icon">Delete</a></td>
 									</tr>
 								<?php }
 							}
 							mysqli_close($conn); //close connection
 						?>
-					</table>			
+					</table>
+					<div>
+						<p>Number of Available Slots:</p>
+						<p>Number of Student vehicles:</p>
+						<p>Number of Employee vehicles:</p>
+						<p>Number of Visitor vehicles:</p>	
+					</div>
+					<a href="addvehicle.php" class="button special">Add a Vehicle</a>
 				</div>
 			</section>
 		<!-- Footer -->

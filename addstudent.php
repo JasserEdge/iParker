@@ -35,7 +35,7 @@ session_start();
 			<h1><img class= "logo" src="images/logo.png" alt="no image" /><strong><a href="options.php">iParker iAcademy</a></strong></h1>
 			<nav id="nav">
 				<ul>
-					<li>ADMIN</li>
+					<li><strong><p class="text-white">ADMIN</p></strong></li>
 					<li><a href="index.php">Log out</a></li>	
 					<li><a href="options.php">Options</a></li>
 				</ul>

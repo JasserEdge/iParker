@@ -10,10 +10,6 @@ $_SESSION['idnumber'] = 0;
 		<!--Main CSS-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/alert.css" />
-	<style>
-
-
-	</style>
 	</head>
 	<body class="landing">
 		<?php
@@ -30,7 +26,7 @@ $_SESSION['idnumber'] = 0;
 			<h1><img class= "logo" src="images/logo.png" alt="no image" /><strong><a href="">iParker iAcademy</a></strong></h1>
 			<nav id="nav">
 				<ul>
-					<li>ADMIN</li>	
+					<li><strong><p class="text-white">ADMIN</p></strong></li>
 					<li><a href="index.php">Log out</a></li>					
 					<li><a href="">Contact us</a></li>
 				</ul>

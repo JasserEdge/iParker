@@ -41,7 +41,7 @@ session_start();
 		
 		<!-- Banner -->
 			<section id="banner">
-				<h2>NUMBER OF AVAILABLE PARKING SLOTS</h2>
+				<h2>NUMBER OF AVAILABLE PARKING SLOTS: </h2>
 					<div class="containersmall box center">
 						<header class="align-center">
 							<h2>Log In to iParker:</h2>
