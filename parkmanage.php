@@ -48,7 +48,7 @@
 		
 		<!-- Banner -->
 			<section id="banner" class="wrapper style1">
-				<div>
+				<div class="container">
 					<table style="color:white" border='1'>
 						<tr>
 							<th><h4 style="color:white">ID</h4></th>
@@ -81,11 +81,15 @@
 							mysqli_close($conn); //close connection
 						?>
 					</table>
-					<div>
-						<p>Number of Available Slots:</p>
-						<p>Number of Student vehicles:</p>
-						<p>Number of Employee vehicles:</p>
-						<p>Number of Visitor vehicles:</p>	
+					<div class="feature-grid">
+						<div class="feature">
+							<p>Number of Available Slots:<p style="color:red">000</p>
+							<p>Number of Student vehicles:<p style="color:red">000</p>
+						</div>
+						<div class="feature">
+							<p>Number of Employee vehicles:<p style="color:red">000</p>
+							<p>Number of Visitor vehicles:<p style="color:red">000</p>
+						</div>	
 					</div>
 					<a href="addvehicle.php" class="button special">Add a Vehicle</a>
 				</div>
