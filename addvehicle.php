@@ -48,7 +48,6 @@
                             </select></br>
 							<p>*Parking Spot: <input type="text" name="parkingSpot" required="required" placeholder="Parking Spot" autocomplete="off"/></p>
 							<p>*Time in: <input type="time" name="timeIn" required="required" autocomplete="off"/></p>
-							<p>Time out: <input type="time" name="timeOut" required="required"  autocomplete="off"/></p>
 							<p>*Date: <input type="date" name="date" required="required" autocomplete="off"/></p>
 								
 							<p><input class="button special" type='submit' value='Add Vehicle'/><p>
