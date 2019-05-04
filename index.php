@@ -30,7 +30,6 @@ session_start();
 			<h1><img class= "logo" src="images/logo.png" alt="no image" /><strong><a href="">iParker iAcademy</a></strong></h1>
 			<nav id="nav">
 				<ul>
-					<li><a href="">About us</a></li>
 					<li><a href="">Contact us</a></li>
 				</ul>
 			</nav>

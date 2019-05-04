@@ -30,15 +30,29 @@
 			<section id="banner" class="wrapper style1">
 				<div class="container">
                     <header class="align-center">
-				        <h2>Log In to iParker:</h2>
+				        <h2>Add vehicle to iParker:</h2>
 				    </header>
 				    <footer class="align-center">
-						<form class=" form" action="addtoDB.php" method="post">
-							<p>*License Plate: <input type="text" name="licensePlate" required="required" placeholder="ABC-1234" autocomplete="off"/></p></br>
-							<p>*Vehicle <select name="password" required="required">
+						<form class=" form" action="addvehicledb.php" method="post">
+							<p>*License Plate: <input type="text" name="licensePlate" required="required" placeholder="License Plate" autocomplete="off"/></p></br>
+							<p>*Vehicle Type: <select name="vehicleType" required="required"></p>
+                                <option value="car">CAR</option>
+                                <option value="motor">MOTORCYCLE</option>
+                                <option value="suv">SUV</option>
+								<option value="truck">TRUCK</option>
                             </select></br>
-									<p><input class="button special" type='submit' value='Login'/><p>
-							</form>
+							<p>*School Occupation: <select name="vehicleType" required="required"></p>
+                                <option value="faculty">FACULTY</option>
+                                <option value="student">STUDENT</option>
+                                <option value="visitor">VISITOR</option>
+                            </select></br>
+							<p>*Parking Spot: <input type="text" name="parkingSpot" required="required" placeholder="Parking Spot" autocomplete="off"/></p>
+							<p>*Time in: <input type="time" name="timeIn" required="required" autocomplete="off"/></p>
+							<p>Time out: <input type="time" name="timeOut" required="required"  autocomplete="off"/></p>
+							<p>*Date: <input type="date" name="date" required="required" autocomplete="off"/></p>
+								
+							<p><input class="button special" type='submit' value='Add Vehicle'/><p>
+						</form>
 				    </footer>
                 </div>
 			</section>

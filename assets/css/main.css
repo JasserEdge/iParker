@@ -1602,7 +1602,7 @@
 		color: #ffffff;
 	}
 
-	body, input, select, textarea {
+	body, input, time, date, select, textarea {
 		font-family: "Raleway", Arial, Helvetica, sans-serif;
 		font-size: 13pt;
 		font-weight: 400;
@@ -2086,6 +2086,8 @@
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
+	input[type="time"],
+	input[type="date"],
 	select,
 	textarea {
 		-moz-appearance: none;
@@ -2107,6 +2109,8 @@
 		input[type="text"]:invalid,
 		input[type="password"]:invalid,
 		input[type="email"]:invalid,
+		input[type="time"]:invalid,
+		input[type="date"]:invalid,
 		select:invalid,
 		textarea:invalid {
 			box-shadow: none;
@@ -2115,6 +2119,8 @@
 		input[type="text"]:focus,
 		input[type="password"]:focus,
 		input[type="email"]:focus,
+		input[type="time"]:focus,
+		input[type="date"]:focus,
 		select:focus,
 		textarea:focus {
 			border-color: #f32853;
@@ -2158,6 +2164,8 @@
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
+	input[type="time"],
+	input[type="date"],
 	select {
 		height: 2.75em;
 	}

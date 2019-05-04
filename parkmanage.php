@@ -83,11 +83,11 @@
 					</table>
 					<div class="feature-grid">
 						<div class="feature">
-							<p>Number of Available Slots:<p style="color:red">000</p>
+							<p>Number of Available slots:<p style="color:red">000</p>
 							<p>Number of Student vehicles:<p style="color:red">000</p>
 						</div>
 						<div class="feature">
-							<p>Number of Employee vehicles:<p style="color:red">000</p>
+							<p>Number of Faculty vehicles:<p style="color:red">000</p>
 							<p>Number of Visitor vehicles:<p style="color:red">000</p>
 						</div>	
 					</div>
