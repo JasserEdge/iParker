@@ -1,4 +1,7 @@
 <?php
+	session_start();
+	$_SESSION['vehicle'] = 0;
+
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
@@ -9,11 +12,30 @@
 	if(!$conn){
 		die("Connection Failed:" . mysqli_connect_error());
 	}
+	echo "Connected Successfully!<br>";
 	
 	//get data
 	//get all information from  table
-	$query="SELECT * from vehicles";
-	//run the query and store data in a variable
-	$data = @mysqli_query($conn, $query);
-	//display data
+	$license = $_POST['licensePlate'];
+	$type = $_POST['vehicleType'];
+	$occupation = $_POST['schoolOccupation'];
+	//$spot = "none";
+	$timeIn = $_POST['timeIn'];
+	//$timeOut = "none";
+	$date = $_POST['date'];
+	
+	//make sql insert statement
+	$sql="INSERT into vehicles(license_plate, vehicle_type, school_occupation, time_in, date) values ('" . $license . "','" . $type . "','" . $occupation . "','" . $timeIn . "','" . $date . "');" ;
+	//run the query 
+	if(mysqli_query($conn, $sql)){
+		$_SESSION['vehicle'] = 1;
+		header("Location:parkmanage.php");
+		exit;
+	} else{
+		$_SESSION['vehicle'] = 2;
+		header("Location:parkmanage.php");
+		exit;
+	}
+
+	mysqli_close($conn);
 ?>

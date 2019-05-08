@@ -1,4 +1,7 @@
 <?php
+	
+	session_start();
+	
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
@@ -31,6 +34,21 @@
 	
 	</head>
 	<body class="landing">
+		<?php 
+			if ($_SESSION['vehicle'] == 1){
+				echo "<div class=\"alert success align-center fixed-top\">
+						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+						<strong>Vehicle successfully added!</strong>
+						</div> ";
+			}
+			if ($_SESSION['vehicle'] == 2){
+				echo "<div class=\"alert align-center fixed-top\">
+						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+						<strong>ERROR!</strong> vehicle invalid!
+						</div> ";
+			}
+			$_SESSION['vehicle'] = 0;
+		?>
 		<!-- Header -->
 		<header id="header" class="alt">
 			<h1><img class= "logo" src="images/logo.png" alt="no image" /><strong><a href="">iParker iAcademy</a></strong></h1>
@@ -49,6 +67,7 @@
 		<!-- Banner -->
 			<section id="banner" class="wrapper style1">
 				<div class="container">
+				<a href="addvehicle.php" class="button special">Add a Vehicle</a>
 					<table style="color:white" border='1'>
 						<tr>
 							<th><h4 style="color:white">ID</h4></th>
@@ -91,19 +110,10 @@
 							<p>Number of Visitor vehicles:<p style="color:red">000</p>
 						</div>	
 					</div>
-					<a href="addvehicle.php" class="button special">Add a Vehicle</a>
 				</div>
 			</section>
 		<!-- Footer -->
 			<footer id="footer">
-				<div class="container">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-					</ul>
-				</div>
 				<div class="copyright">
 					&copy; iParker. All rights reserved.
 				</div>

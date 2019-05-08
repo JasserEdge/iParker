@@ -1,4 +1,13 @@
-<html>
+<?php 
+
+$month = date('m');
+$day = date('d');
+$year = date('Y');
+
+$today = $year . '-' . $month . '-' . $day;
+$time = date("h:i:a");
+?>
+</html>
 	<head>
 		<title>iParker Management System</title>
 		<meta charset="utf-8" />
@@ -11,6 +20,9 @@
 	
 	</head>
 	<body class="landing">
+		<?php
+			
+		?>
 		<!-- Header -->
 		<header id="header" class="alt">
 			<h1><img class= "logo" src="images/logo.png" alt="no image" /><strong><a href="">iParker iAcademy</a></strong></h1>
@@ -32,23 +44,24 @@
                     <header class="align-center">
 				        <h2>Add vehicle to iParker:</h2>
 				    </header>
-				    <footer class="align-center">
-						<form class=" form" action="addvehicledb.php" method="post">
+				    <footer class="align-center containersmall box center">
+						<form class="form" action="addvehicledb.php" method="post">
 							<p>*License Plate: <input type="text" name="licensePlate" required="required" placeholder="License Plate" autocomplete="off"/></p></br>
 							<p>*Vehicle Type: <select name="vehicleType" required="required"></p>
-                                <option value="car">CAR</option>
-                                <option value="motor">MOTORCYCLE</option>
-                                <option value="suv">SUV</option>
-								<option value="truck">TRUCK</option>
+								<option >SELECT ONE</option>
+                                <option value="CAR">CAR</option>
+                                <option value="MOTORCYCLE">MOTORCYCLE</option>
+                                <option value="SUV">SUV</option>
+								<option value="TRUCK">TRUCK</option>
                             </select></br>
-							<p>*School Occupation: <select name="vehicleType" required="required"></p>
-                                <option value="faculty">FACULTY</option>
-                                <option value="student">STUDENT</option>
-                                <option value="visitor">VISITOR</option>
+							<p>*School Occupation: <select name="schoolOccupation" required="required"></p>
+								<option >SELECT ONE</option>
+                                <option value="FACULTY">FACULTY</option>
+                                <option value="STUDENT">STUDENT</option>
+                                <option value="VISITOR">VISITOR</option>
                             </select></br>
-							<p>*Parking Spot: <input type="text" name="parkingSpot" required="required" placeholder="Parking Spot" autocomplete="off"/></p>
-							<p>*Time in: <input type="time" name="timeIn" required="required" autocomplete="off"/></p>
-							<p>*Date: <input type="date" name="date" required="required" autocomplete="off"/></p>
+							<p>*Time in: <input type="time" name="timeIn" value= "<?php echo $time ?>" required="required" /></p>
+							<p>*Date: <input type="date" name="date" value="<?php echo $today; ?>" required="required" /></p>
 								
 							<p><input class="button special" type='submit' value='Add Vehicle'/><p>
 						</form>
@@ -57,14 +70,6 @@
 			</section>
 		<!-- Footer -->
 			<footer id="footer">
-				<div class="container">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-					</ul>
-				</div>
 				<div class="copyright">
 					&copy; iParker. All rights reserved.
 				</div>

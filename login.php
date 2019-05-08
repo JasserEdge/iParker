@@ -14,7 +14,7 @@
 	//get data from form
 	$email = $_POST['email'];
 	$password = $_POST['password'];
-	//make sql insert statement
+	//make sql
 	$sql="SELECT * FROM accounts WHERE email='$email' AND password='$password'";
 	//check if SQL is correctly formed
 									
