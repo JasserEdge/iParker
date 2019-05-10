@@ -1,2 +1,15 @@
-.buttoncolor.edit {background-color: #4CAF50;}
-.buttoncolor.delete {background-color: #f44336;}
+.buttoncolor.edit {
+    background-color: #4CAF50;
+   
+   
+    justify-content: center;
+    
+}
+.buttoncolor.delete {
+    background-color: #f44336;
+  
+   
+    justify-content: center;
+   
+    
+}

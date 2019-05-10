@@ -30,6 +30,9 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/alert.css" />
 		<link rel="stylesheet" href="assets/css/button.css" />
+		<!--Font Awesome Icons-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 		
 	
 	</head>
@@ -48,6 +51,36 @@
 						</div> ";
 			}
 			$_SESSION['vehicle'] = 0;
+
+			if ($_SESSION['delete'] == 1){
+				echo "<div class=\"alert success align-center fixed-top\">
+						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+						<strong>Vehicle successfully deleted!</strong>
+						</div> ";
+			}
+			if ($_SESSION['delete'] == 2){
+				echo "<div class=\"alert align-center fixed-top\">
+						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+						<strong>ERROR!</strong> vehicle not deleted!
+						</div> ";
+			}
+			$_SESSION['delete'] = 0;
+
+			if ($_SESSION['edit'] == 1){
+				echo "<div class=\"alert success align-center fixed-top\">
+						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+						<strong>Vehicle successfully update!</strong>
+						</div> ";
+			}
+			if ($_SESSION['edit'] == 2){
+				echo "<div class=\"alert align-center fixed-top\">
+						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+						<strong>ERROR!</strong> vehicle not updated!
+						</div> ";
+			}
+			$_SESSION['edit'] = 0;
+
+
 		?>
 		<!-- Header -->
 		<header id="header" class="alt">
@@ -67,40 +100,43 @@
 		<!-- Banner -->
 			<section id="banner" class="wrapper style1">
 				<div class="container">
-				<a href="addvehicle.php" class="button special">Add a Vehicle</a>
-					<table style="color:white" border='1'>
-						<tr>
-							<th><h4 style="color:white">ID</h4></th>
-							<th><h4 style="color:white">License Plate</h4></th>
-							<th><h4 style="color:white">Vehicle Type</h4></th>
-							<th><h4 style="color:white">School Occupation</h4></th>
-							<th><h4 style="color:white">Parking Spot</h4></th>
-							<th><h4 style="color:white">Time-in</h4></th>
-							<th><h4 style="color:white">Time-out</h4></th>
-							<th><h4 style="color:white">Date</h4></th>
-							<th></th>
-							<th></th>
-						</tr>
-						<?php
-							if($data) {
-								while($row = @mysqli_fetch_array($data)){ ?>
-									<tr><td><?php echo $row['parking_id'];?></td>
-									   <td> <?php echo $row['license_plate'];?></td>
-									   <td> <?php echo $row['vehicle_type'];?></td>
-									   <td> <?php echo $row['school_occupation'];?></td>
-									   <td> <?php echo $row['parking_spot'];?></td>
-									   <td> <?php echo $row['time_in'];?></td>
-									   <td> <?php echo $row['time_out'];?></td>
-									   <td> <?php echo $row['date'];?></td>
-									   <td><a href="" class="button buttoncolor edit small icon">Edit</a></td>
-									   <td><a href="" class="button buttoncolor delete small icon">Delete</a></td>
-									</tr>
-								<?php }
-							}
-							mysqli_close($conn); //close connection
-						?>
-					</table>
-					<div class="feature-grid">
+				<div class="text-right">
+					<div>
+						<table style="color:white" border='1'>
+							<tr>
+								<th><h4 style="color:white">ID</h4></th>
+								<th><h4 style="color:white">License Plate</h4></th>
+								<th><h4 style="color:white">Vehicle Type</h4></th>
+								<th><h4 style="color:white">School Occupation</h4></th>
+								<th><h4 style="color:white">Parking Spot</h4></th>
+								<th><h4 style="color:white">Time-in</h4></th>
+								<th><h4 style="color:white">Time-out</h4></th>
+								<th><h4 style="color:white">Date</h4></th>
+								<th><a href="addvehicle.php" class="button special">Add a Vehicle</a></th>
+								
+							</tr>
+							<?php
+								if($data) {
+									while($row = @mysqli_fetch_array($data)){ ?>
+										<tr><td><?php echo $row['parking_id'];?></td>
+										<td> <?php echo $row['license_plate'];?></td>
+										<td> <?php echo $row['vehicle_type'];?></td>
+										<td> <?php echo $row['school_occupation'];?></td>
+										<td> <?php echo $row['parking_spot'];?></td>
+										<td> <?php echo $row['time_in'];?></td>
+										<td> <?php echo $row['time_out'];?></td>
+										<td> <?php echo $row['date'];?></td>
+										<td><a href="editplus.php?id='<?php echo $row['parking_id'];?>'" class="button buttoncolor edit small icon "><i class="fa fa-edit" style="font-size:24px"></i></a>
+										<a href="deletevehicle.php?id='<?php echo $row['parking_id'];?>'" class="button buttoncolor delete small icon " onclick="return confirm('Are you sure you want to delete?')"><i class="fa fa-trash-o" style="font-size:24px"></i></a></td>
+										</tr>
+									<?php }
+								}
+								mysqli_close($conn); //close connection
+							?>
+						</table>
+					</div>
+				</div>
+				<div class="feature-grid">
 						<div class="feature">
 							<p>Number of Available slots:<p style="color:red">000</p>
 							<p>Number of Student vehicles:<p style="color:red">000</p>
@@ -109,8 +145,10 @@
 							<p>Number of Faculty vehicles:<p style="color:red">000</p>
 							<p>Number of Visitor vehicles:<p style="color:red">000</p>
 						</div>	
-					</div>
 				</div>
+				<a href="" class="button special">View Past Documentations</a>
+				<a href="" class="button special">View parking spots layout</a>
+				
 			</section>
 		<!-- Footer -->
 			<footer id="footer">

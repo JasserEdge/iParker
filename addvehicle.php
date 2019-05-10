@@ -48,14 +48,14 @@ $time = date("h:i:a");
 						<form class="form" action="addvehicledb.php" method="post">
 							<p>*License Plate: <input type="text" name="licensePlate" required="required" placeholder="License Plate" autocomplete="off"/></p></br>
 							<p>*Vehicle Type: <select name="vehicleType" required="required"></p>
-								<option >SELECT ONE</option>
+								<option disabled selected hidden>SELECT ONE</option>
                                 <option value="CAR">CAR</option>
                                 <option value="MOTORCYCLE">MOTORCYCLE</option>
                                 <option value="SUV">SUV</option>
 								<option value="TRUCK">TRUCK</option>
                             </select></br>
 							<p>*School Occupation: <select name="schoolOccupation" required="required"></p>
-								<option >SELECT ONE</option>
+								<option disabled selected hidden>SELECT ONE</option>
                                 <option value="FACULTY">FACULTY</option>
                                 <option value="STUDENT">STUDENT</option>
                                 <option value="VISITOR">VISITOR</option>

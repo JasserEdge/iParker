@@ -12,7 +12,7 @@
 	if(!$conn){
 		die("Connection Failed:" . mysqli_connect_error());
 	}
-	echo "Connected Successfully!<br>";
+	
 	
 	//get data
 	//get all information from  table

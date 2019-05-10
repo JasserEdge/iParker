@@ -42,6 +42,10 @@ width:75px;
   margin: 0px;
 }
 
+.text-right{
+  text-align: right !important;
+}
+
 .fixed-top {
   position: fixed;
   top: 0;

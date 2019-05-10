@@ -44,6 +44,7 @@ session_start();
 					<div class="feature">
 						<div class="align-center">
 							<h2>NUMBER OF AVAILABLE PARKING SLOTS:<p style="color:red">000</p></h2>
+							<a href="addvehicle.php" class="button special">View parking spots layout</a>
 						</div>
 					</div>
 					<div class="feature">
