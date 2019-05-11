@@ -19,6 +19,14 @@
 	//run the query and store data in a variable
 	$data = @mysqli_query($conn, $query);
 	//display data
+
+	$numOfStudent = 0;
+	$numOfVisitor = 0;
+	$numOfFaculty = 0;
+
+	$numOfSlots = 70 - mysqli_num_rows($data);
+
+
 ?>
 
 <html>
@@ -129,7 +137,19 @@
 										<td><a href="editplus.php?id='<?php echo $row['parking_id'];?>'" class="button buttoncolor edit small icon "><i class="fa fa-edit" style="font-size:24px"></i></a>
 										<a href="deletevehicle.php?id='<?php echo $row['parking_id'];?>'" class="button buttoncolor delete small icon " onclick="return confirm('Are you sure you want to delete?')"><i class="fa fa-trash-o" style="font-size:24px"></i></a></td>
 										</tr>
-									<?php }
+									<?php 
+										if($row['school_occupation'] == "FACULTY"){
+											++$numOfFaculty;
+										}
+										if($row['school_occupation'] == "STUDENT"){
+											++$numOfStudent;
+
+										}
+										if($row['school_occupation'] == "VISITOR"){
+											++$numOfVisitor;
+										}
+										
+									}
 								}
 								mysqli_close($conn); //close connection
 							?>
@@ -138,18 +158,19 @@
 				</div>
 				<div class="feature-grid">
 						<div class="feature">
-							<p>Number of Available slots:<p style="color:red">000</p>
-							<p>Number of Student vehicles:<p style="color:red">000</p>
+							<p>Number of Available slots:<p style="color:red"><?php echo $numOfSlots?></p>
+							<p>Number of Student vehicles:<p style="color:red"><?php echo $numOfStudent ?></p>
 						</div>
 						<div class="feature">
-							<p>Number of Faculty vehicles:<p style="color:red">000</p>
-							<p>Number of Visitor vehicles:<p style="color:red">000</p>
+							<p>Number of Faculty vehicles:<p style="color:red"><?php echo $numOfFaculty ?></p>
+							<p>Number of Visitor vehicles:<p style="color:red"><?php echo $numOfVisitor ?></p>
 						</div>	
 				</div>
 				<a href="" class="button special">View Past Documentations</a>
 				<a href="" class="button special">View parking spots layout</a>
 				
 			</section>
+
 		<!-- Footer -->
 			<footer id="footer">
 				<div class="copyright">

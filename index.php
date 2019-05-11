@@ -1,6 +1,27 @@
 <?php
 session_start();
 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "softeng-iparker-db";
+//create connection
+	
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+//check connection
+	
+if(!$conn){
+	die("Connection Failed:" . mysqli_connect_error());
+}
+	
+//get data
+//get all information from  table
+	
+$query="SELECT * from vehicles";
+//run the query and store data in a variable
+$data = @mysqli_query($conn, $query);
+
+$numOfSlots = 70 - mysqli_num_rows($data);
 ?> 
 <html>
 	<head>
@@ -43,7 +64,7 @@ session_start();
 				<div class="feature-grid">
 					<div class="feature">
 						<div class="align-center">
-							<h2>NUMBER OF AVAILABLE PARKING SLOTS:<p style="color:red">000</p></h2>
+							<h2>NUMBER OF AVAILABLE PARKING SLOTS:<p style="color:red"><?php echo $numOfSlots?></p></h2>
 							<a href="addvehicle.php" class="button special">View parking spots layout</a>
 						</div>
 					</div>
@@ -55,8 +76,8 @@ session_start();
 							<footer class="align-center">
 								<form class=" form" action="login.php" method="post">
 									<input type="email" name="email" required="required" placeholder="Email" autocomplete="off"/></br>
-										<input type="password" name="password" required="required" placeholder="Password" autocomplete="off"/></br>
-										<p><input class="button special" type='submit' value='Login'/><p>
+									<input type="password" name="password" required="required" placeholder="Password" autocomplete="off"/></br>
+									<p><input class="button special" type='submit' value='Login'/><p>
 								</form>
 							</footer>			
 						</div>

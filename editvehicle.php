@@ -29,7 +29,7 @@
                                 school_occupation= '$occupation',
                                 parking_spot= '$spot',
                                 time_in= '$timeIn',
-                                time_out= '$timeIn',
+                                time_out= '$timeOut',
                                 date = '$date'
                                 WHERE parking_id= $id";
         
@@ -39,10 +39,8 @@
 	        exit();
         }else{
             $_SESSION['edit'] = 2;
-            echo "ERROR: Unable to execute $sql. " . 
-	        mysqli_error($conn);
-            //header("Location:parkmanage.php");
-            //exit();
+            header("Location:parkmanage.php");
+            exit();
         }
     
     mysqli_close($conn);
