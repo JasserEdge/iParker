@@ -92,7 +92,7 @@
 		?>
 		<!-- Header -->
 		<header id="header" class="alt">
-			<h1><img class= "logo" src="images/logo.png" alt="no image" /><strong><a href="">iParker iAcademy</a></strong></h1>
+			<h1><img class= "logo" src="images/logo.png" alt="no image" /><strong><a href="options.php">iParker iAcademy</a></strong></h1>
 			<nav id="nav">
 				<ul>
 					<li><strong><p class="text-white">ADMIN</p></strong></li>	
@@ -109,8 +109,8 @@
 			<section id="banner" class="wrapper style1">
 				<div class="container">
 				<div class="text-right">
-					<div>
-						<table style="color:white" border='1'>
+					
+						<table style="color:white" border='2'>
 							<tr>
 								<th><h4 style="color:white">ID</h4></th>
 								<th><h4 style="color:white">License Plate</h4></th>
@@ -123,6 +123,9 @@
 								<th><a href="addvehicle.php" class="button special">Add a Vehicle</a></th>
 								
 							</tr>
+						</table>
+						<div style="color:white; height:400px; overflow:auto;">
+						<table>
 							<?php
 								if($data) {
 									while($row = @mysqli_fetch_array($data)){ ?>
@@ -154,7 +157,8 @@
 								mysqli_close($conn); //close connection
 							?>
 						</table>
-					</div>
+						</div>
+					
 				</div>
 				<div class="feature-grid">
 						<div class="feature">
@@ -180,7 +184,6 @@
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>

@@ -45,6 +45,8 @@ $numOfSlots = 70 - mysqli_num_rows($data);
 						</div> ";
 			}
 			$_SESSION['login'] = 0;
+
+			
 		?>
 		<!-- Header -->
 		<header id="header" class="alt">
@@ -65,7 +67,7 @@ $numOfSlots = 70 - mysqli_num_rows($data);
 					<div class="feature">
 						<div class="align-center">
 							<h2>NUMBER OF AVAILABLE PARKING SLOTS:<p style="color:red"><?php echo $numOfSlots?></p></h2>
-							<a href="" class="button special">View parking spots layout</a>
+							<a href="parkingspots.php" class="button special">View parking spots layout</a>
 						</div>
 					</div>
 					<div class="feature">

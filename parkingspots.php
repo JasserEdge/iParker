@@ -106,13 +106,7 @@
 		<!-- Header -->
 		<header id="header" class="alt">
 			<h1><img class= "logo" src="images/logo.png" alt="no image" /><strong><a href="">iParker iAcademy</a></strong></h1>
-			<nav id="nav">
-				<ul>
-					<li><strong><p class="text-white">ADMIN</p></strong></li>
-					<li><a href="index.php">Log out</a></li>					
-					<li><a href="options.php">Options</a></li>
-				</ul>
-			</nav>
+			
 		</header>
 
 		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
@@ -682,10 +676,12 @@
                             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                             <a class="next" onclick="plusSlides(1)">&#10095;</a>
                         </div>
+
+                        <br><p><button onclick="goBack()" class="button special">Go Back</button></div>
 					</header>
 
                     <footer>
-                        <p><a href="parkmanage.php" class="button special">Go Back</a></div>
+                        
                     </footer>
 					
 				</div>
@@ -713,6 +709,10 @@
 
                 function currentSlide(n) {
                 showSlides(slideIndex = n);
+                }
+
+                function goBack() {
+                    window.history.back();
                 }
 
                 function showSlides(n) {
