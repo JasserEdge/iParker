@@ -24,7 +24,7 @@
 	$numOfVisitor = 0;
 	$numOfFaculty = 0;
 
-	$numOfSlots = 70 - mysqli_num_rows($data);
+	$numOfSlots = 76 - mysqli_num_rows($data);
 
 
 ?>
@@ -167,7 +167,7 @@
 						</div>	
 				</div>
 				<a href="" class="button special">View Past Documentations</a>
-				<a href="" class="button special">View parking spots layout</a>
+				<a href="parkingspots.php" class="button special">View parking spots layout</a>
 				
 			</section>
 
