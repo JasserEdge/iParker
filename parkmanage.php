@@ -162,12 +162,12 @@
 				</div>
 				<div class="feature-grid">
 						<div class="feature">
-							<p>Number of Available slots:<p style="color:red"><?php echo $numOfSlots?></p>
-							<p>Number of Student vehicles:<p style="color:red"><?php echo $numOfStudent ?></p>
+							<p>Number of Available slots:<p style="color:white"><?php echo $numOfSlots?></p>
+							<p>Number of Student vehicles:<p style="color:white"><?php echo $numOfStudent ?></p>
 						</div>
 						<div class="feature">
-							<p>Number of Faculty vehicles:<p style="color:red"><?php echo $numOfFaculty ?></p>
-							<p>Number of Visitor vehicles:<p style="color:red"><?php echo $numOfVisitor ?></p>
+							<p>Number of Faculty vehicles:<p style="color:white"><?php echo $numOfFaculty ?></p>
+							<p>Number of Visitor vehicles:<p style="color:white"><?php echo $numOfVisitor ?></p>
 						</div>	
 				</div>
 				<a href="" class="button special">View Past Documentations</a>
