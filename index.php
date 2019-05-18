@@ -53,7 +53,7 @@ $numOfSlots = 70 - mysqli_num_rows($data);
 			<h1><img class= "logo" src="images/logo.png" alt="no image" /><strong><a href="">iParker iAcademy</a></strong></h1>
 			<nav id="nav">
 				<ul>
-					<li><a href="">Contact us</a></li>
+					<li><a href="">Contact me</a></li>
 				</ul>
 			</nav>
 		</header>
