@@ -120,7 +120,7 @@
 								<th><h4 style="color:white">Time-in</h4></th>
 								<th><h4 style="color:white">Time-out</h4></th>
 								<th><h4 style="color:white">Date</h4></th>
-								<th><a href="addvehicle.php" class="button special">Add a Vehicle</a></th>
+								<th><button id="myBtn" class="button small special">Add a Vehicle</button></th>
 								
 							</tr>
 						</table>
@@ -170,9 +170,9 @@
 							<p>Number of Visitor vehicles:<p style="color:white"><?php echo $numOfVisitor ?></p>
 						</div>	
 				</div>
-				<a href="" class="button special">View Past Documentations</a>
 				<a href="parkingspots.php" class="button special">View parking spots layout</a>
-				
+				<a href="pastdocumentation.php" class="button special">View Past Documentations</a><br><br>
+				<a href="savedocumentation.php" class="button">Save Documentations</a>
 			</section>
 
 		<!-- Footer -->
@@ -187,6 +187,33 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				// Get the modal
+				var modal = document.getElementById("myModal");
+
+				// Get the button that opens the modal
+				var btn = document.getElementById("myBtn");
+
+				// Get the <span> element that closes the modal
+				var span = document.getElementsByClassName("close")[0];
+
+				// When the user clicks the button, open the modal 
+				btn.onclick = function() {
+				modal.style.display = "block";
+				}
+
+				// When the user clicks on <span> (x), close the modal
+				span.onclick = function() {
+				modal.style.display = "none";
+				}
+
+				// When the user clicks anywhere outside of the modal, close it
+				window.onclick = function(event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+				}
+			</script>
 
 	</body>
 </html>

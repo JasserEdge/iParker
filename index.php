@@ -21,7 +21,7 @@ $query="SELECT * from vehicles";
 //run the query and store data in a variable
 $data = @mysqli_query($conn, $query);
 
-$numOfSlots = 70 - mysqli_num_rows($data);
+$numOfSlots = 76 - mysqli_num_rows($data);
 ?> 
 <html>
 	<head>
