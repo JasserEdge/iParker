@@ -5,7 +5,7 @@ $day = date('d');
 $year = date('Y');
 
 $today = $year . '-' . $month . '-' . $day;
-$time = date("h:i:a");
+$time = date("g:i:a");
 ?>
 </html>
 	<head>
@@ -16,9 +16,8 @@ $time = date("h:i:a");
 		<link rel="stylesheet" href="assets/css/main.css"/>
 		<link rel="stylesheet" href="assets/css/alert.css"/>
 		<link rel="stylesheet" href="assets/css/button.css" />
-	
-	
 	</head>
+	
 	<body class="landing">
 		<?php
 			
@@ -60,9 +59,6 @@ $time = date("h:i:a");
                                 <option value="STUDENT">STUDENT</option>
                                 <option value="VISITOR">VISITOR</option>
                             </select></br>
-							<p>*Time in: <input type="time" name="timeIn" value= "<?php echo $time ?>" required="required" /></p>
-							<p>*Date: <input type="date" name="date" value="<?php echo $today; ?>" required="required" /></p>
-								
 							<p><input class="button special" type='submit' value='Add Vehicle'/><p>
 						</form>
 				    </footer>
