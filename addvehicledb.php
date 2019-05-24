@@ -6,6 +6,13 @@
 	$username = "root";
 	$password = "";
 	$dbname = "softeng-iparker-db";
+
+	$month = date('m');
+	$day = date('d');
+	$year = date('Y');
+
+	$today = $year . '-' . $month . '-' . $day;
+	$time = date("g:i:a");
 	//create connection
 	$conn = mysqli_connect($servername, $username, $password, $dbname);
 	//check connection
@@ -16,13 +23,21 @@
 	
 	//get data
 	//get all information from  table
-	$license = $_POST['licensePlate'];
-	$type = $_POST['vehicleType'];
-	$occupation = $_POST['schoolOccupation'];
+	if ($_SESSION['checkplate'] == 0){
+		$license = $_POST['licensePlate'];
+		$type = $_POST['vehicleType'];
+		$occupation = $_POST['schoolOccupation'];
+
+	} else {
+		$license = $_SESSION['checkplate'];	
+		$type =  $_SESSION['checktype'];
+		$occupation = $_SESSION['checkoccupation'];
+	}
+	
 	//$spot = "none";
-	$timeIn = $_POST['timeIn'];
+	$timeIn = $time;
 	//$timeOut = "none";
-	$date = $_POST['date'];
+	$date = $today;
 	
 	//make sql insert statement
 	$sql="INSERT into vehicles(license_plate, vehicle_type, school_occupation, time_in, date) values ('" . $license . "','" . $type . "','" . $occupation . "','" . $timeIn . "','" . $date . "');" ;

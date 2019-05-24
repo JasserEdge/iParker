@@ -38,6 +38,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/alert.css" />
 		<link rel="stylesheet" href="assets/css/button.css" />
+		<link rel="stylesheet" href="assets/css/modal.css" />
 		<!--Font Awesome Icons-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -110,7 +111,7 @@
 				<div class="container">
 				<div class="text-right">
 					
-						<table style="color:white" border='2'>
+						<table style="color:white">
 							<tr>
 								<th><h4 style="color:white">ID</h4></th>
 								<th><h4 style="color:white">License Plate</h4></th>
@@ -121,6 +122,7 @@
 								<th><h4 style="color:white">Time-out</h4></th>
 								<th><h4 style="color:white">Date</h4></th>
 								<th><button id="myBtn" class="button small special">Add a Vehicle</button></th>
+								
 								
 							</tr>
 						</table>
@@ -141,17 +143,16 @@
 										<a href="deletevehicle.php?id='<?php echo $row['parking_id'];?>'" class="button buttoncolor delete small icon " onclick="return confirm('Are you sure you want to delete?')"><i class="fa fa-trash-o" style="font-size:24px"></i></a></td>
 										</tr>
 									<?php 
-										if($row['school_occupation'] == "FACULTY"){
+										if($row['school_occupation'] == "FACULTY") {
 											++$numOfFaculty;
 										}
-										if($row['school_occupation'] == "STUDENT"){
+										if($row['school_occupation'] == "STUDENT") {
 											++$numOfStudent;
 
 										}
-										if($row['school_occupation'] == "VISITOR"){
+										if($row['school_occupation'] == "VISITOR") {
 											++$numOfVisitor;
 										}
-										
 									}
 								}
 								mysqli_close($conn); //close connection
@@ -172,8 +173,24 @@
 				</div>
 				<a href="parkingspots.php" class="button special">View parking spots layout</a>
 				<a href="pastdocumentation.php" class="button special">View Past Documentations</a><br><br>
-				<a href="savedocumentation.php" class="button">Save Documentations</a>
+				<a href="savedocumentation.php" class="button">Add to Documentations</a>
+
+				<!--Modal-->
+				<div id="myModal" class="modal">
+					<div class="modal-content ">
+							<div class="modal-body containersmall align-center">
+								<span class="close">&times;</span>
+								<form class="form" action="checkvehicle.php" method="post">
+									<p style="color:black">*License Plate: <input type="text" name="licensePlate" required="required" placeholder="ABC-1234" autocomplete="off"/></p>
+									<p><input class="button special" type='submit' value='Add Vehicle'/><p>
+								</form>
+							</div>
+							
+					</div>
+				</div>
 			</section>
+	
+
 
 		<!-- Footer -->
 			<footer id="footer">
