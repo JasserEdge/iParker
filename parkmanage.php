@@ -15,7 +15,7 @@
 	
 	//get data
 	//get all information from  table
-	$query="SELECT * from vehicles";
+	$query="SELECT * from vehicles where status=0";
 	//run the query and store data in a variable
 	$data = @mysqli_query($conn, $query);
 	//display data

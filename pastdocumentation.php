@@ -14,7 +14,7 @@
 	
 	//get data
 	//get all information from  table
-	$query="SELECT * from vehicles";
+	$query="SELECT * from vehicles WHERE status=1";
 	//run the query and store data in a variable
 	$data = @mysqli_query($conn, $query);
 	//display data
@@ -65,7 +65,7 @@
 								
 							</tr>
 							<?php
-							/*	if($data) {
+								if($data) {
 									while($row = @mysqli_fetch_array($data)){ ?>
 										<tr><td><?php echo $row['parking_id'];?></td>
 										<td> <?php echo $row['license_plate'];?></td>
@@ -75,12 +75,10 @@
 										<td> <?php echo $row['time_in'];?></td>
 										<td> <?php echo $row['time_out'];?></td>
 										<td> <?php echo $row['date'];?></td>
-										<td><a href="editplus.php?id='<?php echo $row['parking_id'];?>'" class="button buttoncolor edit small icon "><i class="fa fa-edit" style="font-size:24px"></i></a>
-										<a href="deletevehicle.php?id='<?php echo $row['parking_id'];?>'" class="button buttoncolor delete small icon " onclick="return confirm('Are you sure you want to delete?')"><i class="fa fa-trash-o" style="font-size:24px"></i></a></td>
 										</tr>
 									<?php			
 									}
-								}*/
+								}
 								mysqli_close($conn); //close connection
 							?>
 						</table>

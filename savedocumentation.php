@@ -13,19 +13,7 @@
 		die("Connection Failed:" . mysqli_connect_error());
 	}
 	
-	
-	//get data
-	//get all information from  table
-	$license = $_POST['licensePlate'];
-	$type = $_POST['vehicleType'];
-	$occupation = $_POST['schoolOccupation'];
-	//$spot = "none";
-	$timeIn = $_POST['timeIn'];
-	//$timeOut = "none";
-	$date = $_POST['date'];
-	
-	//make sql insert statement
-	$sql="INSERT into vehicles(license_plate, vehicle_type, school_occupation, time_in, date) values ('" . $license . "','" . $type . "','" . $occupation . "','" . $timeIn . "','" . $date . "');" ;
+       $sql = "UPDATE vehicles SET status = '1' WHERE status=0";
 	//run the query 
 	if(mysqli_query($conn, $sql)){
 		$_SESSION['docu'] = 1;
