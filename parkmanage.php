@@ -1,23 +1,39 @@
 <?php
-	
+
 	session_start();
-	
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "softeng-iparker-db";
+
+	// $servername = "localhost";
+	// $username = "root";
+	// $password = "";
+	// $dbname = "softeng-iparker-db";
+
+	if(isset($_POST['search'])){
+			$searchValue = $_POST['searchValue'];
+			$query = "SELECT * FROM `vehicles` WHERE CONCAT(`parking_id`, `license_plate`, `vehicle_type`, `school_occupation`, `parking_spot`, `time_in`, `time_out`, `date`) LIKE '%".$searchValue."%' ";
+			$data = searchTable($query);
+
+		} else {
+			$query= "SELECT * FROM vehicles where status=0";
+			$data = searchTable($query);
+		}
+		function searchTable($query){
+			$conn = mysqli_connect("localhost", "root", "", "softeng-iparker-db");
+			$result = @mysqli_query($conn, $query);
+			return $result;
+		}
+
 	//create connection
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
+	// $conn = mysqli_connect($servername, $username, $password, $dbname);
 	//check connection
-	if(!$conn){
-		die("Connection Failed:" . mysqli_connect_error());
-	}
-	
+	// if(!$conn){
+	// 	die("Connection Failed:" . mysqli_connect_error());
+	// }
+
 	//get data
 	//get all information from  table
-	$query="SELECT * from vehicles where status=0";
+	// $query="SELECT * from vehicles where status=0";
 	//run the query and store data in a variable
-	$data = @mysqli_query($conn, $query);
+	// $data = @mysqli_query($conn, $query);
 	//display data
 
 	$numOfStudent = 0;
@@ -42,20 +58,20 @@
 		<!--Font Awesome Icons-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-		
-	
+
+
 	</head>
 	<body class="landing">
-		<?php 
+		<?php
 			if ($_SESSION['vehicle'] == 1){
 				echo "<div class=\"alert success align-center fixed-top\">
-						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>
 						<strong>Vehicle successfully added!</strong>
 						</div> ";
 			}
 			if ($_SESSION['vehicle'] == 2){
 				echo "<div class=\"alert align-center fixed-top\">
-						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>
 						<strong>ERROR!</strong> vehicle invalid!
 						</div> ";
 			}
@@ -63,13 +79,13 @@
 
 			if ($_SESSION['delete'] == 1){
 				echo "<div class=\"alert success align-center fixed-top\">
-						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>
 						<strong>Vehicle successfully deleted!</strong>
 						</div> ";
 			}
 			if ($_SESSION['delete'] == 2){
 				echo "<div class=\"alert align-center fixed-top\">
-						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>
 						<strong>ERROR!</strong> vehicle not deleted!
 						</div> ";
 			}
@@ -77,13 +93,13 @@
 
 			if ($_SESSION['edit'] == 1){
 				echo "<div class=\"alert success align-center fixed-top\">
-						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>
 						<strong>Vehicle successfully update!</strong>
 						</div> ";
 			}
 			if ($_SESSION['edit'] == 2){
 				echo "<div class=\"alert align-center fixed-top\">
-						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>
 						<strong>ERROR!</strong> vehicle not updated!
 						</div> ";
 			}
@@ -96,21 +112,30 @@
 			<h1><img class= "logo" src="images/logo.png" alt="no image" /><strong><a href="options.php">iParker iAcademy</a></strong></h1>
 			<nav id="nav">
 				<ul>
-					<li><strong><p class="text-white">ADMIN</p></strong></li>	
-					<li><a href="index.php">Log out</a></li>					
+					<li><strong><p class="text-white">ADMIN</p></strong></li>
+					<li><a href="index.php">Log out</a></li>
 					<li><a href="options.php">Options</a></li>
 				</ul>
 			</nav>
 		</header>
 
 		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-		
-		
+
+
 		<!-- Banner -->
 			<section id="banner" class="wrapper style1">
 				<div class="container">
+					<div class="search">
+					<form action="parkmanage.php" method="post">
+
+
+					<label>Search: </label>
+					<input type="text" name="searchValue" />
+					<input type="submit" name="search" value="Search"/>
+				</form>
+				</div>
 				<div class="text-right">
-					
+
 						<table style="color:white">
 							<tr>
 								<th><h4 style="color:white">ID</h4></th>
@@ -122,8 +147,8 @@
 								<th><h4 style="color:white">Time-out</h4></th>
 								<th><h4 style="color:white">Date</h4></th>
 								<th><button id="myBtn" class="button small special">Add a Vehicle</button></th>
-								
-								
+
+
 							</tr>
 						</table>
 						<div style="color:white; height:400px; overflow:auto;">
@@ -142,7 +167,7 @@
 										<td><a href="editplus.php?id='<?php echo $row['parking_id'];?>'" class="button buttoncolor edit small icon "><i class="fa fa-edit" style="font-size:24px"></i></a>
 										<a href="deletevehicle.php?id='<?php echo $row['parking_id'];?>'" class="button buttoncolor delete small icon " onclick="return confirm('Are you sure you want to delete?')"><i class="fa fa-trash-o" style="font-size:24px"></i></a></td>
 										</tr>
-									<?php 
+									<?php
 										if($row['school_occupation'] == "FACULTY") {
 											++$numOfFaculty;
 										}
@@ -155,11 +180,11 @@
 										}
 									}
 								}
-								mysqli_close($conn); //close connection
+								// mysqli_close($conn); //close connection
 							?>
 						</table>
 						</div>
-					
+
 				</div>
 				<div class="feature-grid">
 						<div class="feature">
@@ -169,11 +194,12 @@
 						<div class="feature">
 							<p>Number of Faculty vehicles:<p style="color:white"><?php echo $numOfFaculty ?></p>
 							<p>Number of Visitor vehicles:<p style="color:white"><?php echo $numOfVisitor ?></p>
-						</div>	
+						</div>
 				</div>
 				<a href="parkingspots.php" class="button special">View parking spots layout</a>
 				<a href="pastdocumentation.php" class="button special">View Past Documentations</a><br><br>
 				<a href="savedocumentation.php" class="button">Add to Documentations</a>
+
 
 				<!--Modal-->
 				<div id="myModal" class="modal">
@@ -185,11 +211,11 @@
 									<p><input class="button special" type='submit' value='Add Vehicle'/><p>
 								</form>
 							</div>
-							
+
 					</div>
 				</div>
 			</section>
-	
+
 
 
 		<!-- Footer -->
@@ -214,7 +240,7 @@
 				// Get the <span> element that closes the modal
 				var span = document.getElementsByClassName("close")[0];
 
-				// When the user clicks the button, open the modal 
+				// When the user clicks the button, open the modal
 				btn.onclick = function() {
 				modal.style.display = "block";
 				}
