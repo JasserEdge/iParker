@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 $month = date('m');
 $day = date('d');
@@ -45,7 +46,9 @@ $time = date("g:i:a");
 				    </header>
 				    <footer class="align-center containersmall box center">
 						<form class="form" action="addvehicledb.php" method="post">
-							<p>*License Plate: <input type="text" name="licensePlate" required="required" placeholder="License Plate" autocomplete="off"/></p></br>
+							<p>*License Plate: <input type="text" name="licensePlate" required="required" value='<?php if ($_SESSION['yes'] == 1){
+																																echo $_SESSION['checkplate'];
+																															}?>' autocomplete="off"/></p></br>
 							<p>*Vehicle Type: <select name="vehicleType" required="required"></p>
 								<option disabled selected hidden>SELECT ONE</option>
                                 <option value="CAR">CAR</option>

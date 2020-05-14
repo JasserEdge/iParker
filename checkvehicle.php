@@ -15,7 +15,9 @@
     $plate = $_POST['licensePlate'];
     $_SESSION['checkplate'] = $plate;
     $_SESSION['checktype'] = 0;
-    $_SESSION['checkoccupation'] = 0;
+	$_SESSION['checkoccupation'] = 0;
+	$_SESSION['yes'] = 0;
+	$_SESSION['exists'] = 0;
 
     
 	//make sql insert statement
@@ -29,14 +31,15 @@
             $_SESSION['checktype'] = $row['vehicle_type'];
             $_SESSION['checkoccupation'] = $row['school_occupation'];
         }
-    }
-
-
+	}
+	
 	if(mysqli_num_rows($query) > 0) {
+		$_SESSION['exists'] = 1;
 		header("Location:addvehicledb.php");
 		exit;
 	} else{
-        $_SESSION['checkplate'] = 0;
+		$_SESSION['yes'] = 1;
+		$_SESSION['exists'] = 0;
 		header("Location:addvehicle.php");
 		exit;
 	}

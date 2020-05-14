@@ -75,8 +75,8 @@
 
 
 					<label>Search: </label>
-					<input type="text" name="searchValue" />
-					<input type="submit" name="search" value="Search"/>
+					<input type="text" name="searchValue" style="width: 50%;margin:0 auto;	 text-align: center!important;"/><br>
+					<input type="submit" name="search" value="Search" />
 				</form>
 				</div>
 					<div class="text-right">
@@ -109,7 +109,7 @@
 
 				</div>
 				<form method="post" action="export.php" align="center">
-                     <input type="submit" name="export" value="Export Data to CSV" class="btn btn-success" />
+                     <input type="submit" name="export" value="&#xf019 Export Data to CSV" class="button fa fa-download" />
                 </form>
 				<button onclick="goBack()" class="button special">Go Back</button>
 

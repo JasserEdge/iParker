@@ -1,6 +1,5 @@
 <?php
 session_start();
-$_SESSION['idnumber'] = 0;
 ?> 
 <html>
 	<head>
@@ -10,6 +9,7 @@ $_SESSION['idnumber'] = 0;
 		<!--Main CSS-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/alert.css" />
+		<link rel="stylesheet" href="assets/css/modal.css" />
 	</head>
 	<body class="landing">
 		<?php
@@ -20,6 +20,20 @@ $_SESSION['idnumber'] = 0;
 						</div> ";
 			}
 			$_SESSION['login'] = 0;
+
+			if ($_SESSION['idnumber'] == 1){
+				echo "<div class=\"alert align-center fixed-top\">
+						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+						<strong>Invalid Student ID!</strong> Student ID is not registered in system.
+						</div> ";
+			} 
+			if ($_SESSION['idnumber'] == 2){
+				echo "<div class=\"alert success align-center fixed-top\">
+						<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span> 
+						<strong>Successfully Logged Student into iAcademy System!</strong> 
+						</div> ";
+			}
+			$_SESSION['idnumber'] = 0;
 		?>
 		<!-- Header -->
 		<header id="header" class="alt">
@@ -28,7 +42,7 @@ $_SESSION['idnumber'] = 0;
 				<ul>
 					<li><strong><p class="text-white">ADMIN</p></strong></li>
 					<li><a href="index.php">Log out</a></li>					
-					<li><a href="">Contact us</a></li>
+					<li><a href="contactus.php">Contact us</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -50,7 +64,7 @@ $_SESSION['idnumber'] = 0;
 							<div class="content">
 								<header>
 									<p> Choose to add a student ID to school system</p>
-									<a href="addstudent.php" class="button special">Add an Identity Card</a>
+									<button id="myBtn" class="button special">Add an Identity Card</button>
 								</header>
 							</div>
 						</div>
@@ -68,6 +82,23 @@ $_SESSION['idnumber'] = 0;
 						</div>
 					</div>
 				</div>
+
+			<!--Modal-->
+			<div id="myModal" class="modal">
+					<div class="modal-content ">
+							<div class="modal-body containersmall align-center">
+								<span class="close">&times;</span>
+								<header class="align-center">
+									<h2 style="color:black">Add Student ID to School System:</h2>
+								</header>
+								<form class="form" action="checkid.php" method="post">
+									<input type="text" name="idnumber" placeholder= "201201022" required="required" autocomplete="off" style="color:black" /></br>
+									<p><input class="button special" type='submit' value='Log Student ID'/><p>
+								</form>
+							</div>	
+					</div>
+			</div>
+			
 			</section>
 		<!-- Footer -->
 			<footer id="footer">
@@ -82,6 +113,40 @@ $_SESSION['idnumber'] = 0;
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			
+			<script>
+				// Get the modal
+				var modal = document.getElementById("myModal");
+
+				// Get the button that opens the modal
+				var btn = document.getElementById("myBtn");
+
+				// Get the <span> element that closes the modal
+				var span = document.getElementsByClassName("close")[0];
+
+				// When the user clicks the button, open the modal 
+				btn.onclick = function() {
+					modal.style.display = "block";
+				}
+
+				// When the user clicks on <span> (x), close the modal
+				span.onclick = function() {
+					modal.style.display = "none";
+				}
+
+				// When the user clicks anywhere outside of the modal, close it
+				window.onclick = function(event) {
+					if (event.target == modal) {
+						modal.style.display = "none";
+					}
+				}
+			</script>
 
 	</body>
 </html>

@@ -20,12 +20,12 @@
 
 	if(mysqli_num_rows($query) > 0){
 		$_SESSION['idnumber'] = 2;
-		header("Location:addstudent.php");
+		header("Location:options.php");
 		exit;
 	} else{
 		$_SESSION['idnumber'] = 1;
 		mysqli_error($conn);
-		header("Location:addstudent.php");
+		header("Location:options.php");
 		exit;
 	}
 	mysqli_close($conn);

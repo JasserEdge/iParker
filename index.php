@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['idnumber'] = 0;
 
 $servername = "localhost";
 $username = "root";
@@ -53,7 +54,7 @@ $numOfSlots = 76 - mysqli_num_rows($data);
 			<h1><img class= "logo" src="images/logo.png" alt="no image" /><strong><a href="">iParker iAcademy</a></strong></h1>
 			<nav id="nav">
 				<ul>
-					<li><a href="">Contact me</a></li>
+					<li><a href="contactus.php">Contact us</a></li>
 				</ul>
 			</nav>
 		</header>

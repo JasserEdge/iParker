@@ -121,6 +121,7 @@
                         <div class="slideshow-container">
                             <div class="mySlides fade">
                                 <div style="background: url('images/2ndflr.jpg'); border: 1px solid #ddd; border-radius: 4px; width:550px; height:486px; position: relative;">
+                                <div class="text"><p>2nd Floor Parking</p></div>
                                     <img <?php
                                         if(mysqli_num_rows(@mysqli_query($conn, $query[0])) > 0){
                                             echo "src='images/red.png'";
@@ -365,11 +366,12 @@
                                         }
                                      ?> style="position: relative; top:-30px; left:23px; width:15px; height:15px;">
                                 </div>
-                                <div class="text">2nd Floor Parking</div>
+                                
                             </div> 
 
                             <div class="mySlides fade">
                                 <div style="background: url('images/4thflr.jpg'); border: 1px solid #ddd; border-radius: 4px; width:550px; height:486px; position: relative;">
+                                    <div class="text"><p>4th Floor Parking</p></div>
                                     <img <?php
                                         if(mysqli_num_rows(@mysqli_query($conn, $query0[0])) > 0){
                                             echo "src='images/red.png'";
@@ -671,7 +673,6 @@
                                         }
                                      ?> style="position: relative; top:88px; left:-306px; width:15px; height:15px;">
                                 </div>
-                                <div class="text">4th Floor Parking</div>
                             </div>
                             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                             <a class="next" onclick="plusSlides(1)">&#10095;</a>

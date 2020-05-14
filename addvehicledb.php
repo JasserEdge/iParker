@@ -23,7 +23,7 @@
 	
 	//get data
 	//get all information from  table
-	if ($_SESSION['checkplate'] == 0){
+	if ($_SESSION['exists'] != 1) {
 		$license = $_POST['licensePlate'];
 		$type = $_POST['vehicleType'];
 		$occupation = $_POST['schoolOccupation'];
@@ -33,6 +33,7 @@
 		$type =  $_SESSION['checktype'];
 		$occupation = $_SESSION['checkoccupation'];
 	}
+	
 	
 	//$spot = "none";
 	$timeIn = $time;

@@ -130,12 +130,12 @@
 
 
 					<label>Search: </label>
-					<input type="text" name="searchValue" />
+					<input type="text" class="text-center" name="searchValue" style="width: 50%;margin:0 auto;	 text-align: center!important;"/><br>
 					<input type="submit" name="search" value="Search"/>
 				</form>
 				</div>
-				<div class="text-right">
-
+				<div class="container">
+						<div style="width: 900.4px; margin: 0 auto;">
 						<table style="color:white">
 							<tr>
 								<th><h4 style="color:white">ID</h4></th>
@@ -151,7 +151,8 @@
 
 							</tr>
 						</table>
-						<div style="color:white; height:400px; overflow:auto;">
+						</div>
+						<div style="color:white; width: 900.4px; margin: 0 auto; height:400px; overflow:auto;">
 						<table>
 							<?php
 								if($data) {
@@ -196,9 +197,9 @@
 							<p>Number of Visitor vehicles:<p style="color:white"><?php echo $numOfVisitor ?></p>
 						</div>
 				</div>
-				<a href="parkingspots.php" class="button special">View parking spots layout</a>
-				<a href="pastdocumentation.php" class="button special">View Past Documentations</a><br><br>
-				<a href="savedocumentation.php" class="button">Add to Documentations</a>
+				<a href="pastdocumentation.php" class="button special">View Past Documentations</a>
+				<a href="parkingspots.php" style="background-color: #0077be" class="button special">View parking spots layout</a><br><br>
+				<a href="savedocumentation.php" class="button" onclick="return confirm('Are you sure you want to add to documentations? \nThis will close the day for management and clear the table.')">Add to Documentations</a>
 
 
 				<!--Modal-->

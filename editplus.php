@@ -64,7 +64,7 @@
                     <?php 
                         $row = @mysqli_fetch_array($data) ?>
                             <form class="form" action="editvehicle.php?id='<?php echo $row['parking_id'];?>" method="post">
-                                <p>*License Plate: <input type="text" name="licensePlate" required="required" value="<?php echo $row['license_plate'];?>" autocomplete="off"/></p></br>
+                                <p>*License Plate: <input type="text" name="licensePlate" required="required" value="<?php echo $row['license_plate'];?>" style="color:white" autocomplete="off"/></p></br>
                                 <p>*Vehicle Type: <select name="vehicleType" required="required"></p>
                                     <option value="CAR" 
                                         <?php if($row['vehicle_type'] == "CAR"){ ?>
@@ -83,7 +83,7 @@
                                         selected
                                         <?php } ?>>TRUCK</option>
                                 </select></br>
-                                <p>*School Occupation: <select name="schoolOccupation" required="required"></p>
+                                <p>*School Occupation: <select name="schoolOccupation" required="required" ></p>
                                     <option value="FACULTY"
                                         <?php if($row['school_occupation'] == "FACULTY"){ ?>
                                         selected
@@ -97,12 +97,13 @@
                                         selected
                                         <?php } ?>>VISITOR</option>
                                 </select></br>
-                                <p>Parking Spot: <input type="text" name="parkingSpot"  placeholder="<?php echo $row['parking_spot'];?>" autocomplete="off"/></p></br>
-                                <p>*Time in: <input type="time" name="timeIn" value= "<?php echo $row['time_in'] ?>" required="required" /></p>
-                                <p>Time Out: <input type="time" name="timeOut" value= "<?php echo $row['time_out'] ?>" /></p>
-                                <p>*Date: <input type="date" name="date" value="<?php echo $row['date'];?>" required="required" /></p>
+                                <p>Parking Spot:<br> 
+                                <input type="radio" name="floor" value="2nd"<?php if(substr($row['parking_spot'],3,7) == '2nd'){ echo "checked"; } ?> >2nd<br>
+                                <input type="radio" name="floor" value="4th" <?php if(substr($row['parking_spot'],3,7) == '4th'){ echo "checked"; } ?>>4th<br><br>
+                                <input type="number" name="parkingSpot" min="1" max="42" value="<?php echo substr($row['parking_spot'],0,2);?>" autocomplete="off"/></p></br>
+                                <p>Time Out: <input type="time" name="timeOut" value= "<?php echo $row['time_out'];?>" /></p>
                                     
-                                <p><input class="button special" type='submit' value='Update Vehicle'/><p>
+                                <p><input class="button special" type='submit' value='Update Information'/><p>
                             </form>
 				    </footer>
                 </div>

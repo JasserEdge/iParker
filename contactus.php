@@ -10,6 +10,7 @@ session_start();
 		<!--Main CSS-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/alert.css" />
+		<link rel="stylesheet" href="assets/css/admin.css" />
 	<style>
 
 
@@ -35,9 +36,9 @@ session_start();
 			<h1><a href="options.php"><img class= "logo" src="images/logo.png" alt="no image" /><strong><a href="options.php">iParker iAcademy</a></strong></a></h1>
 			<nav id="nav">
 				<ul>
-					<li><strong><p class="text-white">ADMIN</p></strong></li>					<li><a href="contactus.php">Contact us</a></li>
-					<li><a href="options.php">Options</a></li>
-					<li><a href="index.php">Log out</a></li>
+					<li><strong><p class="text-white">CONTACT US</p></strong></li>				
+					<li></li>
+					<li></li>
 				</ul>
 			</nav>
 		</header>
@@ -52,57 +53,44 @@ session_start();
 							<h2>Contact Us:</h2>
 						</header>
 						<footer class=" containersmall align-center">
-							<form name="contactform" class="form" action="" method="post">
-								<table>
-									<tr>
-										<td>
-											<label>Send to:</label>
-										</td>
-										<td>
-										<select class="browser-default custom-select custom-select-lg mb-3" name="contact_receiver">
-											<option>
-												ASD@iacademy.edu.ph
-											</option>
-											<option>
-												QWE@iacademy.edu.ph
-											</option>
-										</select>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label>Subject</label>
-										</td>
-										<td>
-											<input style="width:100%;" name="subject" maxlength="30"/>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<label>Description</label>
-										</td>
-										<td>
-											<textarea name="description" maxlength="1000" cols="25"></textarea>
-										</td>
-									</tr>
-								</table>
-
-								<p><input class="button special" type='submit' value='Submit'/><p>
-							</form>
+						<div class="panel panel-default">
+                                <div class="panel-body message">
+                                    <div class="">
+                                        <div class="btn-toolbar" role="toolbar">
+                                            <div class="btn-group">
+                                                <button class="btn custom-button"><span class="fa fa-bold"></span></button>
+                                                <button class="btn custom-button"><span class="fa fa-italic"></span></button>
+                                                <button class="btn custom-button"><span class="fa fa-underline"></span></button>
+                                                <button class="btn custom-button"><span class="fa fa-align-left"></span></button>
+                                                <button class="btn custom-button"><span class="fa fa-align-right"></span></button>
+                                                <button class="btn custom-button"><span class="fa fa-align-center"></span></button>
+                                                <button class="btn custom-button"><span class="fa fa-align-justify"></span></button>
+                                                <button class="btn custom-button"><span class="fa fa-indent"></span></button>
+                                                <button class="btn custom-button"><span class="fa fa-outdent"></span></button>
+                                                <button class="btn custom-button"><span class="fa fa-list-ul"></span></button>
+                                                <button class="btn custom-button"><span class="fa fa-list-ol"></span></button>
+												<button class="btn custom-button"><span class="fa fa-trash-o"></span></button>
+                                            <button class="btn custom-button"><span class="fa fa-paperclip"></span></button>
+                                                <button class="btn custom-button dropdown-toggle" data-toggle="dropdown"><span class="fa fa-tags"></span>
+                                                    <span class="caret"></span></button>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="message" name="body" rows="10" placeholder="Concerns and Suggestions Here"></textarea>
+                                        </div>
+                    
+                                        <div class="form-group">
+                                            <button type="submit" class="btn custom-button">Send</button>
+                                        </div>
+                                    </div>
+                                </div>
+								
+                            </div>
+							<br><p><button onclick="goBack()" class="button special">Go Back</button></div>
 						</footer>
 				</div>
 			</section>
-<<?php
-			if(isset($_POST['submit'])){
-				$to = $_POST['contact_receiver']
-    $from = $_POST['email']; // this is the sender's Email address
-    $subject = $_POST['subject'];
-    $subject2 = "Copy of your form submission";
-    $message = "Reporting from the parking space:\n\n" . $_POST['description'];
-    mail($to,$subject,$message,$headers);
-    echo "Mail Sent to " . $to . " succesfully";
-    }
-?>
 		<!-- Footer -->
 			<footer id="footer">
 				<div class="container">
@@ -124,6 +112,11 @@ session_start();
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+                function goBack() {
+                    window.history.back();
+                }
+				</script>
 
 	</body>
 </html>

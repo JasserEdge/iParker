@@ -9,7 +9,13 @@
     background-color: #f44336;
   
    
-    justify-content: center;
-   
-    
+    justify-content: center; 
 }
+
+.buttoncolor.spot {
+    background-color: #0077be;
+  
+   
+    justify-content: center; 
+}
+
